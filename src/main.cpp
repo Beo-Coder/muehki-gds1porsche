@@ -25,6 +25,8 @@ MyJoystick joystick(&adc, &eeprom, buttonDemuxPins, buttonColumnPins);
 Navigator navigator(&display, &joystick);
 
 
+uint32_t lastMillis;
+
 void encoderISR() {
 
 
@@ -65,22 +67,29 @@ void setup() {
     navigator.init(&encoder);
     joystick.begin();
 
+    lastMillis = 0;
+
 
 }
 
 
 void loop() {
 
+    if(millis()-lastMillis >HID_UPDATE_INTERVAL){
+        lastMillis = millis();
+        joystick.updateAxis();
+        joystick.updateButton();
 
-    joystick.updateAxis();
-    joystick.updateButton();
+
+        navigator.checkEncoderFlag();
+
+        navigator.encoder->checkButton();
+        navigator.checkEncoderButtonFlag();
+        navigator.checkDisplay();
+    }
 
 
-    navigator.checkEncoderFlag();
 
-    navigator.encoder->checkButton();
-    navigator.checkEncoderButtonFlag();
-    navigator.checkDisplay();
 
 
 }
