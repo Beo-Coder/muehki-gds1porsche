@@ -80,13 +80,13 @@ void loop() {
         joystick.updateAxis();
         joystick.updateButton();
 
-
-        navigator.checkEncoderFlag();
-
-        navigator.encoder->checkButton();
-        navigator.checkEncoderButtonFlag();
-        navigator.checkDisplay();
     }
+
+    navigator.checkEncoderFlag();
+
+    navigator.encoder->checkButton();
+    navigator.checkEncoderButtonFlag();
+    navigator.checkDisplay();
 
 
 
