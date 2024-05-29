@@ -3,16 +3,16 @@
 
 #include "Arduino.h"
 #include "MyJoystick.h"
-#include "JoystickHID.h"
-#include "Axis.h"
-#include "Button.h"
-#include "Input.h"
-#include "Encoder.h"
-#include "Navigator.h"
+#include "HID/JoystickHID.h"
+#include "Input/Axis.h"
+#include "Input/Button.h"
+#include "LCDInput/Input.h"
+#include "LCDInput/Encoder.h"
+#include "LCDInput/Navigator.h"
 #include "EEPROM_Microchip_24.h"
 #include "MCP3204_MCP3208.h"
 #include "header.h"
-#include "KeyboardHID.h"
+#include "HID/KeyboardHID.h"
 
 
 MyJoystick::MyJoystick(MCP3204_MCP3208 *adc, EEPROM_Microchip_24 *eeprom,
@@ -290,7 +290,7 @@ void MyJoystick::storePreset(uint8_t presetIndex) {
     // Button section
     for (int i = 0; i < buttonCount; i++) {
         uint8_t buttonData[EEPROM_PER_BUTTON_BYTE_SIZE];
-        buttonData[0] = (button[i]->getNormalOpen() & 0x01) << 1 | (button[i]->getTogglMode() & 0x01);
+        buttonData[0] = (button[i]->getNormalOpen() & 0x01) << 1 | (button[i]->getToggleMode() & 0x01);
         for (int j = 1; j < EEPROM_PER_BUTTON_BYTE_SIZE; j++) {
             buttonData[j] = 0;
         }

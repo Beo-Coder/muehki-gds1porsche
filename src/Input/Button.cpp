@@ -4,9 +4,9 @@
 
 #include "Arduino.h"
 #include "Button.h"
-#include "Navigator.h"
+#include "LCDInput/Navigator.h"
 #include "MyJoystick.h"
-#include "Input.h"
+#include "LCDInput/Input.h"
 #include "header.h"
 
 
@@ -61,7 +61,7 @@ void Button::setToggleMode(bool pToggleMode) {
 
 }
 
-bool Button::getTogglMode() const {
+bool Button::getToggleMode() const {
     return toggleMode;
 }
 

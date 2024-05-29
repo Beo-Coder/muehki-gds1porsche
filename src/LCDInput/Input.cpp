@@ -1,13 +1,11 @@
-//
-// Created by Leo on 11.04.2023.
-//
+// Copyright (c) 2023. Leonhard Baschang
 
 #include "Arduino.h"
 #include "Input.h"
 #include "Navigator.h"
 #include "LiquidCrystal_I2C.h"
 #include "Encoder.h"
-#include "Axis.h"
+#include "Input/Axis.h"
 #include "MyJoystick.h"
 
 
@@ -534,7 +532,7 @@ void Input::factoryResetPrompt() {
 void Input::buttonMode(Button *button) {
     navigator->encoder->mode = 100;
     navigator->joystick->disableOutput();
-    uint8_t value = button->getTogglMode();
+    uint8_t value = button->getToggleMode();
     if (value) {
         value = 1;
     } else {

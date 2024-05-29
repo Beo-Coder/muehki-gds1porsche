@@ -2,8 +2,8 @@
 // Copyright (c) 2023. Leonhard Baschang
 
 
-#ifndef UNTITLED19_AXIS_H
-#define UNTITLED19_AXIS_H
+#ifndef PORSCHE_MUEK_INPUT_AXIS_H
+#define PORSCHE_MUEK_INPUT_AXIS_H
 
 class MCP3204_MCP3208;
 
@@ -13,7 +13,7 @@ class MCP3204_MCP3208;
 #define BASE_STEP_SIZE 0.01
 #define BASE_DISPLAY_RESOLUTION 2
 
-#include "Menu.h"
+#include "LCDInput/Menu.h"
 
 class Navigator;
 
@@ -44,7 +44,6 @@ class Axis {
 
 
     long linearCalculation(uint16_t value);
-    double logCalculation(double value);
     double expCalculation(double value);
     int digitalCalculation(double value);
 
@@ -97,4 +96,4 @@ public:
 };
 
 
-#endif //UNTITLED19_AXIS_H
+#endif //PORSCHE_MUEK_INPUT_AXIS_H

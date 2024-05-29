@@ -1,6 +1,4 @@
-//
-// Created by Leo on 11.04.2023.
-//
+// Copyright (c) 2023. Leonhard Baschang
 
 #include "Arduino.h"
 #include "Encoder.h"

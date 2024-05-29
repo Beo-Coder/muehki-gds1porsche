@@ -1,4 +1,4 @@
-# Porsche Mühk
+# Porsche Mü(h)k
 
 ### Raspberry Pi Pico powered HID joystick for an old Porsche tractor
 
@@ -25,7 +25,7 @@
 - upto 8 analog axes
 - upto 24 digital buttons
 - fully customizable axes control curves
-- fully customizable button behaviour
+- fully customizable button behavior
 - 10 different config presets
 - easy control over rotary controller and LCD
 - acts as gamepad or keyboard
@@ -33,10 +33,12 @@
 
 # Description
 
-Porsche Mühk is a Raspberry Pi Pico powered controller to emulate an HI-Device to control various games by using real actuators such as steering wheel, gas and break pedal of a real tractor/car.
+Porsche Mü(h)k is a Raspberry Pi Pico powered controller
+to emulate a HI-Device to control various games by using real actuators such as steering wheel,
+gas and break pedal of a real tractor/car.
 Various actuators can be connected either as analog or digital sensors, like potentiometers and buttons.
 It can emulate a gamepad/joystick or a keyboard, depending on which mode is desired.
-Each analog axis can operate in one of four different modes, giving full control over the behaviour of the axis.
+Each analog axis can operate in one of four different modes, giving full control over the behavior of the axis.
 
 **It may be useful to use an emulator on the host PC to further configure the axes and buttons.**
 # Usage
@@ -52,7 +54,8 @@ Each analog axis can operate in one of four different modes, giving full control
 
 **Note**  
 0 = Axis/Button 0 in software.  
-If an axis/button is connected to port 2, but in software only 2 axes/buttons are selected, the input is not sampled and has no output.
+If an axis/button is connected to port 2, but in software only two axes/buttons are selected,
+the input is not sampled and has no output.
 
 ### Analog Headers
 
@@ -82,7 +85,7 @@ If an axis/button is connected to port 2, but in software only 2 axes/buttons ar
 - S1 = Button contact 1
 - S2 = Button contact 2
 
-Button must close or open these two connections.
+The Button must close or open these two connections.
 
 **More detailed pinout in hardwareReadme**
 
@@ -94,7 +97,7 @@ Button must close or open these two connections.
 
 1. Go to /Settings/Set Preset
 2. Select desired preset
-3. Device will reset automatically
+3. The Device will reset automatically
 
 
 ## Save Preset
@@ -108,8 +111,8 @@ Button must close or open these two connections.
 ### General Settings
 Menu: /Settings/General
 
-- Number of Axes: Select the number of analog inputs/axes (0-8).
-- Number of Buttons: Select the number of digital inputs/buttons (0-24).
+- Number of Axes: Select the number of analog inputs/axes (0–8).
+- Number of Buttons: Select the number of digital inputs/buttons (0–24).
 - Digital Axis Mode: Set the mode for all axes
   - Analog: Axes will be emulated as analog axes (joystick)
   - Analog/Digital: Axes will be emulated as buttons on a joystick
@@ -117,7 +120,7 @@ Menu: /Settings/General
 
 On Analog/Digital and Keyboard mode, each axis will get two buttons/digital outputs assigned. 
 One for an upper limit, one for a lower limit.
-In these modes an axis has only three states: center/off, upper limit, lower limit.
+In these modes, an axis has only three states: center/off, upper limit, lower limit.
 
 **Important:** After any change of these settings, you have to save the preset and restart the device! [Save Settings](#save-preset), [Reinit Joystick](#reinit-joystick)
 
@@ -133,9 +136,9 @@ Menu: /Settings/Axes/{*number of axis*}
 #### Calibration
 It will calibrate your axis settings.  
 Set the minimum position of the axis, this is the position where the output of the axis is the smallest.
-Same with maximum.  
+Same with the maximum.  
 If the center position is not calibrated, the center position is automatically set to the midpoint between minimum and maximum.
-If the center is calibrated one half of the calibration curve can be shorter/longer than the other.
+If the center is calibrated, one half of the calibration curve can be shorter/longer than the other.
 
 
 #### Modes
@@ -145,13 +148,13 @@ If the center is calibrated one half of the calibration curve can be shorter/lon
 
 
 #### Base set
-In exponential and logarithmic mode the base will set the curvature/steepness of the output curve.  
+In exponential and logarithmic mode, the base will set the curvature/steepness of the output curve.  
 The output curve is split in two halves (base 0 and base 1).
-Each base can be set separately or both bases can be set to the same value.  
+Each base can be set separately, or both bases can be set to the same value.  
 Base 0 is the base for the curve between minimum and the center, base 1 for the middle between maximum.  
 For exponential curves the value should be greater than 0, for logarithmic curves the value should be smaller than 0.  
-If value is 0 it is linear.  
-See also diagrams below.
+If the value is 0, it is linear.  
+See also the diagrams below.
 
 #### Digital Calibration
 This will select the digital lower and upper limit of the axis.  
@@ -161,7 +164,7 @@ If the input value is between the boarder, no button is pressed (in (general) An
 
 
 #### Diagrams
-The x-axis represent the input value.
+The x-axis represents the input value.
 - 0 = center (input) position
 - -10 = minimum (input) position
 - 10 = maximum (input) position
@@ -195,8 +198,8 @@ These values will can't be directly controlled.
 | ![log diagram same bases no center calibration](assets/images/axisCurves/axisGraphLog.png "log axis control curve") | ![log diagram diff base no center calibration](assets/images/axisCurves/axisGraphLogDiff.png "log axis control curve") | ![log diagram diff bases center calibration](assets/images/axisCurves/axisGraphLogDiffCenter.png "log axis control curve") |
 
 ##### Other curves (Combinations of all) :
-| Exponential half with other half linear (without center calibration)                                                                                 | Exponential half with other half linear, (different) center calibration                                                                                       | Logarithmic half with other half exponential, (different) center calibration                                                                        |
-|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Exponential half with other half linear (without center calibration)                                                                                 | Exponential half with other half linear, (different) center calibration                                                                                       | Logarithmic half with other half exponential, (different) center calibration                                                                         |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![Exponential half with other half linear (without center calibration)](assets/images/axisCurves/axisGraphExpoLinear.png "other axis control curve") | ![Exponential half with other half linear, (different) center calibration](assets/images/axisCurves/axisGraphExpoLinearCenter.png "other axis control curve") | ![Logarithmic half with Exponential other, (different) center calibration](assets/images/axisCurves/axisGraphExpoLog.png "other axis control curve") |
 
 
@@ -238,17 +241,17 @@ All settings that are not saved will be lost.
 ## Reset Preset
 
 The current selected preset will be set to factory settings.
-After that the joystick will be reloaded.
+After that, the joystick will be reloaded.
 
 
 ## Factory Reset
 
 All settings (all presets) are set back to factory settings.
-After that the joystick will be reloaded.
+After that, the joystick will be reloaded.
 
 
 ## Disable Output
-This setting disables the output to the computer.  
+This setting disables the output of the computer.  
 Especially useful in Keyboard mode.  
 Press it again to enable the output again.
 
@@ -264,39 +267,6 @@ There are no settings stored on the Pico. So the Pico can also be used for other
 
 If there are any bugs/problems, or you have any questions, please contact me.
 
+Mühk or Mük is are the same things. :)
+
 ( ._.)
-
-
-
-
-
-
-
-
-
-**ToDo**
-
-Check Keyboard Analog/Digital Buttons/axes count etc.
-
-keyboard lib
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

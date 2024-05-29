@@ -1,14 +1,12 @@
 // Copyright (c) 2023. Leonhard Baschang
 
-//
-// Created by Leo on 07.04.2023.
-//
+
 #ifndef UNTITLED19_MYJOYSTICK_H
 #define UNTITLED19_MYJOYSTICK_H
 
-#include "Display.h"
-#include "JoystickHID.h"
-#include "KeyboardHID.h"
+#include "LCDInput/Display.h"
+#include "HID/JoystickHID.h"
+#include "HID/KeyboardHID.h"
 #include "header.h"
 
 class Axis;

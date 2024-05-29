@@ -5,7 +5,7 @@
 #ifndef GDS1PORSCHEMUEHK_NAVIGATOR_H
 #define GDS1PORSCHEMUEHK_NAVIGATOR_H
 
-#include "Menu.h"
+class Menu;
 
 class Display;
 

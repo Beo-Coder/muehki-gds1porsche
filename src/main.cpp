@@ -1,8 +1,8 @@
 // Copyright (c) 2023. Leonhard Baschang
 #include <Arduino.h>
-#include "Display.h"
-#include "Navigator.h"
-#include "Encoder.h"
+#include "LCDInput/Display.h"
+#include "LCDInput/Navigator.h"
+#include "LCDInput/Encoder.h"
 #include "MyJoystick.h"
 #include "EEPROM_Microchip_24.h"
 #include "MCP3204_MCP3208.h"
@@ -44,7 +44,7 @@ Encoder encoder(ENCODER_CLK_PIN, ENCODER_DT_PIN, ENCODER_BUTTON_PIN, &encoderISR
 
 void setup() {
 
-    Serial1.begin(9600);
+    Serial1.begin(115200);
 
 
     pinMode(25, OUTPUT);

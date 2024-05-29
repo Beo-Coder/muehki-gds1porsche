@@ -1,6 +1,4 @@
-//
-// Created by Leo on 11.04.2023.
-//
+// Copyright (c) 2023. Leonhard Baschang
 
 #ifndef GDS1PORSCHEMUEHK_ENCODER_H
 #define GDS1PORSCHEMUEHK_ENCODER_H

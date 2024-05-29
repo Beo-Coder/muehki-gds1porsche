@@ -2,10 +2,10 @@
 // Copyright (c) 2023. Leonhard Baschang
 
 
-#ifndef UNTITLED19_BUTTON_H
-#define UNTITLED19_BUTTON_H
+#ifndef PORSCHE_MUEK_INPUT_BUTTON_H
+#define PORSCHE_MUEK_INPUT_BUTTON_H
 
-#include "Menu.h"
+#include "LCDInput/Menu.h"
 
 
 class Button {
@@ -28,7 +28,7 @@ public:
     bool stateChanged(uint8_t newState);
 
     void setToggleMode(bool pToggleMode);
-    bool getTogglMode() const;
+    bool getToggleMode() const;
 
     void setNormalOpen(bool pNormalOpen);
     bool getNormalOpen() const;
@@ -44,4 +44,4 @@ public:
 };
 
 
-#endif //UNTITLED19_BUTTON_H
+#endif //PORSCHE_MUEK_INPUT_BUTTON_H

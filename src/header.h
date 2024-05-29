@@ -1,6 +1,4 @@
-//
-// Created by Leo on 29.04.2023.
-//
+// Copyright (c) 2023. Leonhard Baschang
 
 #ifndef GDS1PORSCHEMUEHK_HEADER_H
 #define GDS1PORSCHEMUEHK_HEADER_H

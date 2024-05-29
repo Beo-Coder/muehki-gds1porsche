@@ -1,4 +1,4 @@
-// Copyright (c) 2023. Leonhard Baschang/
+// Copyright (c) 2023. Leonhard Baschang
 
 #ifndef HIDKEYBOARD_KEYBOARD_LAYOUT_H
 #define HIDKEYBOARD_KEYBOARD_LAYOUT_H

@@ -1,4 +1,4 @@
-# Porsche Mühk Hardware
+# Porsche Mü(h)k Hardware
 
 # Table of Contents
 1. [Intro](#intro)
@@ -9,16 +9,16 @@
 6. [Dimensions](#dimensions)
 
 # Intro
-This Readme file focuses on the hardware of Porsche Mühk.
+This Readme file focuses on the hardware of Porsche Mü(h)k.
 
 # Overview
 The main part is the Raspberry Pi Pico MCU.
 All the configuration data is stored on an external (64 Kb) EEPROM, so that the MCU can be exchanged and used for other projects.  
-A 8-channel 12-bit ADC is used to interface up to 8 analog sensors.  
-An 8:1 analog multiplexer is used to further reduce the used pins of the Pico for the up to 24 digital inputs.  
+An 8-channel 12-bit ADC is used to interface up to eight analog sensors.  
+An 8:1 analog multiplexer is used to further reduce the used pins of the Pico for up to 24 digital inputs.  
 The board has connections for a rotary encoder (with button) and an I2C LCD.  
 The board also has an area and connections to add an extra shield that can add various functions.  
-All buses (SPI, I2C, UART) are routed out, for easy debugging and/or add-ons/modifications.  
+All buses (SPI, I2C, UART) are routed out for easy debugging and/or add-ons/modifications.  
 It has two LEDs for debug purposes.  
 There is a 8x3 button matrix, with n-key rollover.
 So each combination of buttons can be pressed and there is no ghosting.
@@ -40,7 +40,7 @@ So each combination of buttons can be pressed and there is no ghosting.
 - Connector housings for analog connections [PSK 254/3W](https://www.reichelt.de/kupplungs-leergehaeuse-crimptechnik-3-polig-psk-254-3w-p14858.html)
 - Connector housings for display connection [PSK 254/4W](https://www.reichelt.de/kupplungs-leergehaeuse-crimptechnik-4-polig-psk-254-4w-p694.html)
 - Connector housings for encoder connection [PSK 254/5W](https://www.reichelt.de/kupplungs-leergehaeuse-crimptechnik-5-polig-psk-254-5w-p14859.html)
-- Crimp contact for the housings [PSK-Contacts](https://www.reichelt.de/crimpkontakte-fuer-psk-254--20-stueck-psk-kontakte-p14861.html)
+- Crimp contact for the housing [PSK-Contacts](https://www.reichelt.de/crimpkontakte-fuer-psk-254--20-stueck-psk-kontakte-p14861.html)
 
 # Pinout
 
@@ -48,7 +48,8 @@ So each combination of buttons can be pressed and there is no ghosting.
 
 **Note**  
 0 = Axis/Button 0 in software.  
-If an axis/button is connected to port 2, but in software only 2 axes/buttons are selected, the input is not sampled and no output.
+If an axis/button is connected to port 2,
+but in software only two axes/buttons are selected, the input is not sampled and no output.
 
 ### Analog Headers
 
@@ -64,7 +65,7 @@ If an axis/button is connected to port 2, but in software only 2 axes/buttons ar
 - GND = GND
 - Vcc = Vcc (3.3V)
 
-Analog In should not exceed Vcc (3.3V)
+Analog input should not exceed Vcc (3.3V)
 
 ### Digital Headers
 <pre>
@@ -79,7 +80,7 @@ Analog In should not exceed Vcc (3.3V)
 - S1 = Button contact 1
 - S2 = Button contact 2
 
-Button must close or open these two connections.
+The Button must close or open these two connections.
 
 ### Display Header
 <pre> 
@@ -112,10 +113,10 @@ SDA and SCL have a logic level of Vcc (3.3V)
 - DT = DT-Pin of Encoder
 - BT = Button pin of Encoder
 
-CLK, DT and BT are pulled up to VCC. To get a signal they need to be connected to GND.
+CLK, DT and BT are pulled up to VCC. To get a signal, they need to be connected to GND.
 
 **Note**  
-During testing I found problem with presumably voltage spikes from the encoder when it is turned. 
+During testing, I found a problem with presumably voltage spikes from the encoder when it is turned. 
 To reduce them put a ceramic capacitor in parallel with a resistor in series with the CLK signal. 
 This should be as close to the encoder as possible.
 In a next version of the pcb, this maybe could be put on the pcb itself.
@@ -164,6 +165,7 @@ LED 1 (L1) is connected to GPIO 3.
 ## Notes
 All the connectors for the shield are spaced with multiple of 2.54mm, so normal 2.54mm PCB can be used.  
 All dimensions in mm.
+KiCAD files and gerber files can be found [here](hardware)
 
 
 ( ._.)

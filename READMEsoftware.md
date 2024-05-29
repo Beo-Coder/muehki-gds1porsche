@@ -1,4 +1,4 @@
-# Porsche Mühk Software
+# Porsche Mü(h)k Software
 
 # Table of Contents
 1. [Intro](#intro)
@@ -8,7 +8,7 @@
 
 
 # Intro
-This Readme file focuses on the software of Porsche Mühk.
+This Readme file focuses on the software of Porsche Mü(h)k.
 
 # Overview
 This file will not explain all aspects of the software.
@@ -18,6 +18,7 @@ The software is written in C/C++ with Platform IO.
 It can also be imported in the Arduino IDE.
 
 I know that the software can certainly be made better and cleaner.
+Especially the whole menu LCD input.
 
 
 # Emulating a Gamepad/Keyboard
@@ -26,9 +27,9 @@ In Analog and Analog/Digital mode the Pico will emulate a gamepad.
 
 Each axis on the device will be one axis on the gamepad.
 Each button on the device will be one button on the gamepad.  
-In Analog/Digital mode for each axis there are two extra buttons created.
+In Analog/Digital mode for each axis, there are two extra buttons created.
 
-To know which axis/button is which use a gamepad tester.
+To know which axis/button is which uses a gamepad tester.
 Example website I used for testing: [Gamepad tester](https://hardwaretester.com/gamepad)
 
 For the Keyboard mode, each button has one key and each axis has two keys.  
@@ -38,7 +39,7 @@ Example website I used for testing: [Keyboard tester](https://keyboard-test.spac
 
 The libraries used for emulating were written by me  
 [Gamepad library](https://github.com/Beo-Coder/muehk-lib-JoystickHID)  
-[Keyboard library]() -  Coming soon
+[Keyboard library]() - Coming soon (or never... (Just see the code if you need it))
 
 
 # EEPROM Memory Map
@@ -71,13 +72,13 @@ The preset section contains all presets.
 A preset is 405 bytes wide. So the reset of the EEPROM could theoretically store up to 20 presets.  
 
 A preset contains the following data:
-- 32 bytes per axis (2 bytes per calibration data, 2 bytes per digital calibration, 8 bytes per base, 1 bytes for the mode, 1 byte for 8 single bit data, 4 bytes not used)
+- 32 bytes per axis (2 bytes per calibration data, 2 bytes per digital calibration, 8 bytes per base, 1 byte for the mode, 1 byte for 8 single bit data, 4 bytes not used)
 - 2 bytes per button (1 byte for 8 single bit data, 1 byte not used)
-- 5 byte for a general section (1 byte for axis count, 1 byte for button count, 1 byte for the joystick mode, 2 bytes not used)
+- 5 bytes for a general section (1 byte for axis count, 1 byte for button count, 1 byte for the joystick mode, 2 bytes not used)
 
-In total a 405 byte wide preset can hold 10 axes and 40 buttons.  
-With the unused bytes there is enough space to update/modify smaller things without doing a whole new memory map.  
-Because the software normally only stores 10 presets 4121 bytes are free.
+In total, a 405 byte wide preset can hold 10 axes and 40 buttons.  
+With the unused bytes, there is enough space to update/modify smaller things without doing a whole new memory map.  
+Because the software normally only stores 10 presets, 4121 bytes are free.
 These bytes could be used to store more presets or for any other thing that need to be stored.
 
 Preset memory map:
@@ -162,7 +163,7 @@ Preset memory map:
 </pre>
 
 
-To read/write to the EEPROM I used my own library  
+To read/write to the EEPROM, I used my own library  
 [EEPROM 24 lib](https://github.com/Beo-Coder/muehk-lib-Microchip-EEPROM-24)
 
 

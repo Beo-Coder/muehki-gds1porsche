@@ -3,9 +3,9 @@
 
 #include "Arduino.h"
 #include "Axis.h"
-#include "Menu.h"
-#include "Navigator.h"
-#include "Input.h"
+#include "LCDInput/Menu.h"
+#include "LCDInput/Navigator.h"
+#include "LCDInput/Input.h"
 #include "MyJoystick.h"
 #include "MCP3204_MCP3208.h"
 
