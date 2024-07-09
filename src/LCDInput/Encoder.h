@@ -17,6 +17,8 @@ public:
     int8_t flag = 0;
     bool buttonFlag = false;
 
+    uint32_t lastButtonPress;
+
     Encoder(uint8_t clkPin, uint8_t dtPin, uint8_t buttonPin, void (*isr)());
 
     void setEncoderFlag(int8_t direction);

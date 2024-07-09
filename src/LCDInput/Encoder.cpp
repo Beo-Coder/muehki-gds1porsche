@@ -11,6 +11,8 @@ Encoder::Encoder(uint8_t clkPin, uint8_t dtPin, uint8_t buttonPin, void (*isr)()
 
     attachInterrupt(digitalPinToInterrupt(clkPin), isr, FALLING);
 
+    lastButtonPress = 0;
+
 
 }
 
@@ -23,7 +25,11 @@ void Encoder::resetEncoderFlag() {
 }
 
 void Encoder::setButtonFlag() {
-    buttonFlag = true;
+    if(millis()-lastButtonPress > 10){
+        lastButtonPress = millis();
+        buttonFlag = true;
+    }
+
 }
 
 bool Encoder::readButton() const {
