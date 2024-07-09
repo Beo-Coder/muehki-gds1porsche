@@ -25,7 +25,7 @@ void Encoder::resetEncoderFlag() {
 }
 
 void Encoder::setButtonFlag() {
-    if(millis()-lastButtonPress > 10){
+    if(millis()-lastButtonPress > 50){
         lastButtonPress = millis();
         buttonFlag = true;
     }
