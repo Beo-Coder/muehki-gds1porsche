@@ -200,9 +200,9 @@ void Navigator::itemAction(uint8_t index) {
         case 0:
             joystick->toggleOutput();
             if (joystick->getOutputEnable()) {
-                mainMenu->changeName(3, "Disable Output");
+                mainMenu->changeName(2, "Disable Output");
             } else {
-                mainMenu->changeName(3, "Enable Output");
+                mainMenu->changeName(2, "Enable Output");
             }
             reprintMenu();
             break;
