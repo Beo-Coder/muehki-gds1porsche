@@ -115,7 +115,7 @@ Menu: /Settings/General
 - Number of Buttons: Select the number of digital inputs/buttons (0–24).
 - Digital Axis Mode: Set the mode for all axes
   - Analog: Axes will be emulated as analog axes (joystick)
-  - Analog/Digital: Axes will be emulated as buttons on a joystick
+  - Analog/Digital: Axes will be emulated as buttons on a joystick (only digital axes)
   - Keyboard: Axes and buttons will be emulated as a keyboard
 
 On Analog/Digital and Keyboard mode, each axis will get two buttons/digital outputs assigned. 

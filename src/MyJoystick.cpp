@@ -51,10 +51,12 @@ MyJoystick::MyJoystick(MCP3204_MCP3208 *adc, EEPROM_Microchip_24 *eeprom,
                                     EEPROM_PRESET_BUTTONS_BYTE_SIZE) * preset);
     loadPresetGeneralSettings(presetAddressBegin);
 
-    initJoystick();
+    initAxesButtons();
 
     loadPresetAxisSettings(presetAddressBegin + EEPROM_PRESET_GENERAL_BYTE_SIZE);
     loadPresetButtonSettings(presetAddressBegin + EEPROM_PRESET_GENERAL_BYTE_SIZE + EEPROM_PRESET_AXES_BYTE_SIZE);
+
+    initJoystick();
 
 
 }
@@ -301,7 +303,8 @@ void MyJoystick::storePreset(uint8_t presetIndex) {
 
 }
 
-void MyJoystick::initJoystick() {
+
+void MyJoystick::initAxesButtons() {
 
     if (axisCount > MAX_AXIS_COUNT) {
         axisCount = MAX_AXIS_COUNT;
@@ -330,11 +333,18 @@ void MyJoystick::initJoystick() {
 
     digitalAxisButtons = 0;
 
+}
+
+void MyJoystick::initJoystick() {
+
 
     for (int i = 0; i < axisCount; i++) {
         //if in axis-digital-button Mode, add 2 Button per Axis
         if (joystickMode == 1) {
-            if (axis[i]->getMode() == 3) {
+
+            if (axis[i]->getMode() == 2) {
+                pinMode(2, OUTPUT);
+                digitalWrite(2, HIGH);
                 button[buttonCount] = new Button(buttonCount);
                 buttonCount++;
                 button[buttonCount] = new Button(buttonCount);
@@ -353,7 +363,7 @@ void MyJoystick::initJoystick() {
     if (joystickMode == 2) {
         keyboard = new KeyboardHID;
     } else {
-        hid = new JoystickHID(this->axisCount, this->buttonCount);
+        hid = new JoystickHID(this->axisCount, buttonCount);
     }
 }
 
@@ -469,7 +479,7 @@ void MyJoystick::updateAxis() {
             for (int i = 0; i < axisCount; i++) {
                 if (axis[i]->valueChanged()) {
                     int32_t value = axis[i]->getValue();
-                    if (axis[i]->getMode() == 3 && joystickMode == 1) {
+                    if (axis[i]->getMode() == 2 && joystickMode == 1) {
                         uint8_t button0Value = 0;
                         uint8_t button1Value = 0;
 
@@ -580,6 +590,8 @@ void MyJoystick::buttonEntryStatic(Navigator *navigator, uint8_t index) {
     navigator->joystick->buttonEntry(navigator, index);
 
 }
+
+
 
 
 

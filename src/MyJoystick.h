@@ -98,6 +98,8 @@ class MyJoystick {
     void initAxis();
 
     void initButton();
+
+    void initAxesButtons();
     void initJoystick();
 
     void readButtonValues();
